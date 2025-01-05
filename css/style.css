@@ -1,0 +1,362 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  cursor: none !important;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+/* 在 <style> 标签内或者外部 CSS 文件中 */
+@font-face {
+  font-family: "MyCustomFont";
+  src: url("../font/myFont.ttf") format("woff2"), url("../font/myFont.ttf") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+canvas {
+  display: block;
+}
+
+.p5Canvas {
+  position: absolute;
+  top: 0;
+}
+
+body {
+  background-color: #f6f6f6;
+}
+
+.canvasBox1 {
+  z-index: 999;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  width: 1330px;
+  margin: 0 auto;
+}
+
+.content .header {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-bottom: 50px;
+  margin-top: 50px;
+}
+
+.content .header .logo {
+  margin-right: 300px;
+}
+
+.content .header .logo img {
+  width: 300px;
+}
+
+.content .icons {
+  display: flex;
+  align-items: center;
+  height: 70px;
+}
+
+.content .icons img {
+  margin-left: 20px;
+  height: 70px;
+  width: auto;
+  cursor: pointer;
+}
+
+.content .icons .icon4 {
+  height: 90px;
+}
+
+.content .main {
+  display: flex;
+}
+
+.content .main .numbers {
+  display: flex;
+  flex-direction: column;
+}
+
+.content .main .numbers img {
+  width: 70px;
+  height: 70px;
+  margin-bottom: 10px;
+}
+
+.content .main .box1 {
+  width: 500px;
+  height: 710px;
+  background-image: url(../images/bg/bg.png);
+  background-size: 100% 100%;
+  margin-left: 35px;
+  margin-right: 48px;
+  position: relative;
+}
+
+.content .main .box1 .canvasBox {
+  position: absolute;
+  left: 60px;
+  top: 135px;
+}
+
+.content .main .box1 .title {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  display: none;
+}
+
+.content .main .box1 .title img {
+  width: 200px;
+  height: 60px;
+}
+
+.content .main .box2 {
+  width: 677px;
+  height: 710px;
+  background-image: url(../images/bg/bg_1.png);
+  background-size: 100% 100%;
+  padding-top: 100px;
+  box-sizing: border-box;
+}
+
+.content .main .box2 .title {
+  display: none;
+  justify-content: center;
+  margin-top: 49px;
+  margin-bottom: 25px;
+}
+
+.content .main .box2 .title img {
+  width: 120px;
+  height: auto;
+}
+
+.content .main .box2 .select {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 70px;
+  position: relative;
+  z-index: 999;
+}
+
+.content .main .box2 .select img {
+  width: 564px;
+  cursor: pointer;
+}
+
+.content .main .box2 .dropList {
+  display: none;
+}
+
+.content .main .box2 .dropList .active {
+  display: none;
+}
+
+.content .main .box2 .keyBox {
+  display: grid;
+  grid-template-columns: repeat(6, 80px);
+  gap: 14px;
+  margin-left: 60px;
+  margin-top: 25px;
+}
+
+.content .main .box2 .keyBox .item {
+  height: 80px;
+  background-image: url(../images/keyBg.png);
+  background-size: 100% 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+}
+
+.content .main .box2 .keyBox .item .orgin {
+  max-height: 55px;
+}
+
+.content .main .box2 .keyBox .isDone {
+  background-image: url(../images/bg/itemBg.png);
+}
+
+.content .main .box2 .keyBox .newDraw {
+  display: none;
+  width: 70% !important;
+  max-width: 100% !important;
+}
+
+.content .main .box2 .keyBox .newDraw2 {
+  width: 70% !important;
+  max-width: 100% !important;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.content .main .box2 .keyBox .isBig {
+  width: 183px;
+  height: 183px;
+  z-index: 9;
+  position: absolute;
+  background-image: url(../../images/keyBg2.png);
+  display: none;
+  background-size: 100% 100%;
+  left: -4px;
+  top: -4px;
+  align-items: center;
+  justify-content: center;
+}
+
+.content .main .box2 .keyBox .isBig .newDraw {
+  width: 70% !important;
+  max-width: 100% !important;
+}
+
+.follow-image {
+  position: absolute;
+  pointer-events: none;
+  /* 使图片不阻挡点击事件 */
+  width: 45px;
+  top: 0;
+  left: 0;
+  z-index: 9999999999;
+}
+
+.numbers img {
+  cursor: pointer;
+}
+
+.num1_1,
+.num2_1,
+.num3_1,
+.num4_1,
+.num5_1,
+.num6_1,
+.num7_1,
+.num8_1,
+.num9_1 {
+  display: none;
+}
+
+.saved {
+  display: none;
+}
+
+.page1 {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: #3455ff;
+  position: relative;
+}
+
+.page1 .header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.page1 .header .icons {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.page1 .header .logo img {
+  width: 300px;
+}
+
+.page1 .header .icons img {
+  height: 70px;
+}
+
+img {
+  -webkit-user-drag: none;
+  -moz-user-drag: none;
+  -ms-user-drag: none;
+  user-drag: none;
+}
+
+.page1 .content {
+  flex: 1;
+  background-color: #692eff;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  font-family: "MyCustomFont";
+  line-height: 50px;
+  font-size: 24px;
+}
+
+.page1 {
+  overflow: hidden;
+}
+
+.page1 .content .text {
+  padding: 0 150px;
+}
+
+.page1 .content .text .p1 {
+  color: #fff;
+}
+
+.page1 .content .text .p2 {
+  color: #ffe705;
+}
+
+.page1 .content .text .p3 {
+  color: #fe00ff;
+}
+
+.page1 .content .text .p4 {
+  color: #00fe38;
+}
+
+.page1 .content .text .p5 {
+  color: #ee6e01;
+}
+
+.page1 .content2 {
+  background-color: #3455ff;
+}
+
+.page1 .refresh {
+  position: absolute;
+  z-index: 9999;
+  left: -80px;
+  cursor: pointer;
+}
+
+.page1 {
+  width: 100vw;
+  overflow: hidden;
+}
+
+.page1 .close {
+  display: flex;
+  align-items: center;
+}
+
+#canvasBox2 {
+  position: absolute;
+  top: 180px;
+  height: calc(100vh - 180px);
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+/*# sourceMappingURL=style.css.map */
