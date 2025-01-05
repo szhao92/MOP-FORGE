@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <div class="page1">
+      <div class="header">
+        <div class="logo">
+          <a href="./index.html">
+            <img src="./images/img1.png" alt="" />
+          </a>
+        </div>
+        <div class="icons">
+          <img class="icon1 refresh" src="./images/img4.png" alt="" />
+          <img class="icon2 saveBtn" src="./images/img5.png" alt="" />
+          <img class="icon3 exportBtn" src="./images/img6.png" alt="" />
+          <a href="./page2.html"
+            ><img src="./images/page1/img2.png" alt=""
+          /></a>
+        </div>
+      </div>
+      <div class="content">
+        <div class="text">
+          <p class="p1">
+            MoP FORGE is a creative tool that lets users design and customize
+            their own alphabets using a wide variety of digital brushes.Powered
+            by P5.js,the project provides an intuitive platform where anyone can
+            experiment with brush styles,shapes,and textures to create unique
+            letterforMs.
+          </p>
+          <p class="p2">Step 1:</p>
+          <p class="p2">
+            Choose from a collection of painting brushes to craft your ow
+            letters and symbols.
+          </p>
+          <p class="p3">Step 2:</p>
+          <p class="p3">
+            Draw freely with responsive brushes and press "SAVE"to save your
+            work.
+          </p>
+          <p class="p4">Step 3:</p>
+          <p class="p4">
+            Generate entire sets of alphabets,numbers,and punctuation.
+          </p>
+          <p class="p5">Step 4:</p>
+          <p class="p5">
+            Once you've designed your set of characters,press "EXPORT"to dowload
+            them in PDF format.
+          </p>
+        </div>
+      </div>
+    </div>
+    <img
+      src="images/cursor.png"
+      alt="Follow Image"
+      id="followImage"
+      class="follow-image"
+    />
+  </body>
+  <script src="./js/jquery.js"></script>
+  <script src="./js/index.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const followImage = document.getElementById("followImage");
+
+      // 监听鼠标移动事件
+      document.addEventListener("mousemove", (event) => {
+        const x = event.clientX - followImage.offsetWidth / 2;
+        const y = event.clientY - followImage.offsetHeight / 2;
+        followImage.style.transform = `translate(${x}px, ${y}px)`;
+      });
+    });
+  </script>
+</html>

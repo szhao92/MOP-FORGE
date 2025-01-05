@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+
+  <body>
+    <div class="content">
+      <div class="header">
+        <div class="logo">
+          <a href="./index.html">
+            <img src="./images/img1.png" alt="" />
+          </a>
+        </div>
+        <div class="icons">
+          <img class="icon1 refresh" src="./images/img4.png" alt="" />
+          <img class="icon2 saveBtn" src="./images/img5.png" alt="" />
+          <img class="icon3 exportBtn" src="./images/img6.png" alt="" />
+          <a href="./page2.html">
+            <img class="icon4" src="./images/img7.png" alt="" />
+          </a>
+        </div>
+      </div>
+      <div class="main">
+        <div class="numbers">
+          <img data-index="1" class="num1" src="./images/1.png" alt="" />
+          <img
+            data-index="1"
+            class="num1_1"
+            src="./images/number/1.png"
+            alt=""
+          />
+          <img data-index="2" class="num2" src="./images/2.png" alt="" />
+          <img
+            data-index="2"
+            class="num2_1"
+            src="./images/number/2.png"
+            alt=""
+          />
+          <img data-index="3" class="num3" src="./images/3.png" alt="" />
+          <img
+            data-index="2"
+            class="num3_1"
+            src="./images/number/3.png"
+            alt=""
+          />
+          <img data-index="4" class="num4" src="./images/4.png" alt="" />
+          <img
+            data-index="2"
+            class="num4_1"
+            src="./images/number/4.png"
+            alt=""
+          />
+          <img data-index="5" class="num5" src="./images/5.png" alt="" />
+          <img
+            data-index="5"
+            class="num5_1"
+            src="./images/number/5.png"
+            alt=""
+          />
+          <img data-index="6" class="num6" src="./images/6.png" alt="" />
+          <img
+            data-index="6"
+            class="num6_1"
+            src="./images/number/6.png"
+            alt=""
+          />
+          <img data-index="7" class="num7" src="./images/7.png" alt="" />
+          <img
+            data-index="7"
+            class="num7_1"
+            src="./images/number/7.png"
+            alt=""
+          />
+          <img data-index="8" class="num8" src="./images/8.png" alt="" />
+          <img
+            data-index="8"
+            class="num8_1"
+            src="./images/number/8.png"
+            alt=""
+          />
+          <img data-index="9" class="num9" src="./images/9.png" alt="" />
+          <img
+            data-index="9"
+            class="num9_1"
+            src="./images/number/9.png"
+            alt=""
+          />
+        </div>
+        <div class="box1">
+          <div class="title">
+            <img src="./images/img9.png" alt="" />
+          </div>
+          <div class="canvasBox1 canvasBox" id="canvasBox1"></div>
+        </div>
+        <div class="box2">
+          <div class="title">
+            <img src="./images/img12.png" alt="" />
+          </div>
+          <div class="select">
+            <div class="orginSelect">
+              <img src="./images/select/s0/s1.png" alt="" />
+            </div>
+            <div class="dropList">
+              <div class="s1" data-index="1">
+                <img class="active" src="./images/select/s0/1.png" alt="" />
+                <img src="./images/select/s0/2.png" alt="" />
+              </div>
+              <div class="s2" data-index="2">
+                <img class="active" src="./images/select/s0/3.png" alt="" />
+                <img src="./images/select/s0/4.png" alt="" />
+              </div>
+
+              <div class="s3" data-index="3">
+                <img class="active" src="./images/select/s0/5.png" alt="" />
+                <img src="./images/select/s0/6.png" alt="" />
+              </div>
+              <div class="s4" data-index="4">
+                <img class="active" src="./images/select/s0/7.png" alt="" />
+                <img src="./images/select/s0/8.png" alt="" />
+              </div>
+            </div>
+          </div>
+          <div class="keyBox keyBox1">
+            <div class="item">
+              <img class="orgin" src="./images/zm/1.png" alt="" />
+              <img class="newDraw" src="" alt="" />
+            </div>
+            <div class="item">
+              <img class="orgin" src="./images/zm/1.png" alt="" />
+              <img class="newDraw" src="" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <img
+        src="images/cursor.png"
+        alt="Follow Image"
+        id="followImage"
+        class="follow-image"
+      />
+    </div>
+  </body>
+  <script>
+    // 设置背景颜色
+    function setBgColor() {
+      $(".box1").css({
+        backgroundImage: `url(./images/bg/bg${leftNumber}.png)`,
+      });
+      $(".box2").css({
+        backgroundImage: `url(./images/bg/bg${leftNumber}_1.png)`,
+      });
+    }
+
+    // 设置下拉框颜色
+    function setSelectColor() {
+      $(".orginSelect img").attr(
+        "src",
+        `./images/select/s${leftNumber}/s1.png`
+      );
+
+      for (let i = 0; i < $(".dropList img").length; i++) {
+        $(".dropList img")
+          .eq(i)
+          .attr("src", `./images/select/s${leftNumber}/${i + 1}.png`);
+        console.log(`./images/select/s${leftNumber}/${i + 1}.png`);
+      }
+    }
+  </script>
+  <script src="./js/jquery.js"></script>
+  <script src="./js/p5.js"></script>
+  <script src="./js/p5.mini.js"></script>
+  <script src="./js/draw1.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="./js/index.js"></script>
+  <script src="./js/data.js"></script>
+  <script>
+    let typeIndex = 1;
+    let keyBordIndex = 0;
+
+    // let leftNumber = 0;
+    const arr = [1, 2, 3, 4];
+    let isDrawArr = [];
+
+    // 下拉框中的this
+    let thisSelect = null;
+
+    // 初始9个数组 二维数组 才行
+    for (let i = 0; i < 9; i++) {
+      // 初始化长度为4个空数组
+      isDrawArr.push(new Array(4).fill(null).map(() => []));
+    }
+    isDrawArr[0][0][0] = 1;
+
+    let thisItem = null;
+
+    let saveImgs = [];
+
+    setKeybord();
+
+    $(".dropList div").click(function (e) {
+      e.stopPropagation();
+
+      setSelectState(this);
+      // 关闭下拉框
+      $(".dropList").hide();
+      $(".orginSelect").show();
+
+      setKeybord();
+    });
+
+    $(".dropList div").hover(
+      function () {
+        $(this).siblings().children().show();
+        $(this).siblings().children(".active").hide();
+        $(this).children().hide();
+        $(this).children(".active").show();
+      },
+      function () {
+        setSelectState();
+      }
+    );
+
+    function setSelectState(_this) {
+      console.log(_this, ":_this");
+
+      if (_this) {
+        thisSelect = _this;
+      }
+      const index = $(thisSelect).data("index");
+      if (index) {
+        typeIndex = index;
+      }
+
+      $(thisSelect).siblings().children().show();
+      $(thisSelect).siblings().children(".active").hide();
+      $(thisSelect).children().hide();
+      $(thisSelect).children(".active").show();
+    }
+
+    $(".select").click(function () {
+      $(".orginSelect").hide();
+      $(".dropList").show();
+    });
+
+    $(".refresh").click(function () {
+      clear();
+      isClear = true
+    });
+
+    $(".saveBtn").click(function () {
+      if (keyBordIndex == 0) return alert("Please select a key");
+
+      const dataUrl = myCanvas.elt.toDataURL("image/png");
+
+      const curArr = isDrawArr[leftNumber - 1][typeIndex - 1];
+
+      let text = "";
+      if (typeIndex == 1) {
+        text = zmArr[keyBordIndex - 1];
+      } else if (typeIndex == 2) {
+        text = xiaoxie[keyBordIndex - 1];
+      } else if (typeIndex == 3) {
+        text = shuzi[keyBordIndex - 1];
+      } else if (typeIndex == 4) {
+        text = biaodian[keyBordIndex - 1];
+      }
+
+      curArr[keyBordIndex - 1] = {
+        type: leftNumber,
+        index: keyBordIndex,
+        img: dataUrl,
+        text,
+      };
+
+      // 添加图片
+      $(thisItem).children(".newDraw").attr("src", dataUrl);
+      $(thisItem).children(".isBig").children(".newDraw2").attr("src", dataUrl);
+      // 显示原本的背景
+      $(thisItem)
+        .children(".isBig")
+        .css("background-image", `url(./images/keyBg2.png`);
+      // 显示编辑图片
+      $(thisItem).children(".newDraw").show();
+      // 隐藏原始图片
+      $(thisItem).children(".orgin").hide();
+    });
+
+    $(".exportBtn").click(function () {
+      createPDF();
+    });
+
+    $(".box2").click(function (e) {
+      e.preventDefault();
+
+      showSmallBox();
+    });
+
+    function showSmallBox() {
+      // 单独处理当前
+      // 判断当前的是否保存
+      console.log(thisItem, "thisItem");
+
+      if (!thisItem) return;
+
+      $(thisItem).children(".isBig").hide();
+
+      const src = $(thisItem).children(".newDraw").attr("src");
+
+      if (src != "") {
+        // 被保存
+        showSaveImg(thisItem);
+      } else {
+        showOrginImg(thisItem);
+      }
+    }
+
+    function showSaveImg(element) {
+      $(element).addClass("isDone");
+      // 显示完成的Img
+      $(element).children(".isDone").show();
+      // $(element).children(".isBig").hide();
+
+      // 显示内部已完成图片
+      $(element).children(".orgin").hide();
+      $(element).children(".newDraw").show();
+    }
+
+    function showOrginImg(element) {
+      $(element).removeClass("isDone");
+
+      $(element).children(".isDone").hide();
+      // $(element).children(".isBig").show();
+
+      // 显示原始图片
+      $(element).children(".newDraw").hide();
+      $(element).children(".orgin").show();
+    }
+
+    function getCurImg() {
+      const curArr = isDrawArr[leftNumber - 1][typeIndex - 1];
+      const obj = curArr.find((item) => item.index == keyBordIndex);
+
+      return obj;
+    }
+
+    // 设置键盘
+    function setKeybord() {
+      const keybord = $(".keyBox");
+
+      const html = keyBordArr[typeIndex - 1]
+        .map((item, index) => {
+          if (leftNumber > 0) {
+            const curArr = isDrawArr[leftNumber - 1][typeIndex - 1];
+
+            if (curArr && curArr[index] && curArr[index].img) {
+              let html = `
+                    <div class="item isDone">
+                <img class="orgin" src="./images/${item.imgFile}/${
+                index + 1
+              }.png" alt="" style="display:none;"/>
+              <img class="newDraw" src="${
+                curArr[index].img
+              }" alt="" style="display:inline-block;"/>
+                <div class="isBig">
+                    <img class="newDraw2" src="" alt="" />
+                </div>
+              </div>
+              `;
+              return html;
+            }
+          }
+
+          return item.html;
+        })
+        .join("");
+
+      keybord.html(html);
+
+      $(".keyBox .item").click(function (e) {
+        e.stopPropagation();
+
+        if (leftNumber == 0) return alert("Please select the brush first ");
+        clear();
+        const index = $(this).index() + 1;
+
+        keyBordIndex = index;
+
+        // 判断当前建是否被编辑过
+        const curArr = isDrawArr[leftNumber - 1][typeIndex - 1];
+        const curItem = curArr.find((item) => item && item.index == index);
+
+        // 切换放大预览的显示和隐藏
+        if ($(this).children(".isBig").css("display") === "none") {
+          $(this).children(".isBig").show();
+          if (!curItem) {
+            let imageTypeFolder = getImageTypeFolder(typeIndex);
+            $(this)
+              .children(".isBig")
+              .css(
+                "background-image",
+                `url(./images/big/${imageTypeFolder}/${index}.png)`
+              );
+          }
+        } else {
+          $(this).children(".isBig").hide();
+          // 如果没有被编辑过，则显示原始图片
+          if (!curItem) {
+            $(this).children(".orgin").show();
+            $(this).children(".newDraw").hide();
+          } else {
+            // 显示空白背景
+            $(this).css("background-image", "url(./images/keyBg2.png)");
+          }
+        }
+        if (thisItem && thisItem != this) {
+          $(thisItem).children(".isBig").hide();
+          const src = $(thisItem).children(".newDraw").attr("src");
+
+          if (src != "") {
+            // 被保存
+            showSaveImg(thisItem);
+          } else {
+            showOrginImg(thisItem);
+          }
+        }
+
+        thisItem = this;
+      });
+    }
+
+    // 导出pdf
+    async function createPDF() {
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF({
+        compress: true, // 开启压缩
+      });
+
+      const exportOrder = [
+        { type: "大写", folder: "uppercase" },
+        { type: "小写", folder: "lowercase" },
+        { type: "数字", folder: "numbers" },
+        { type: "标点", folder: "punctuation" },
+      ];
+
+      try {
+        for (
+          let moduleIndex = 0;
+          moduleIndex < isDrawArr.length;
+          moduleIndex++
+        ) {
+          for (
+            let typeIndex = 0;
+            typeIndex < isDrawArr[moduleIndex].length;
+            typeIndex++
+          ) {
+            const curType = isDrawArr[moduleIndex][typeIndex];
+            if (curType.some((item) => item.img)) {
+              const folderName = exportOrder[typeIndex].type;
+              for (const item of curType) {
+                if (item?.img) {
+                  let index = item.type < 10 ? "0" + item.type : item.type;
+                  try {
+                    const imgData = await loadMyImage(
+                      `images/pdf2/${folderName}/${item.text}-${index}.png`
+                    );
+                    // console.log(imgData, "imgData");
+
+                    doc.addImage(
+                      imgData,
+                      "PNG",
+                      0,
+                      0,
+                      210,
+                      297,
+                      undefined,
+                      "fast"
+                    );
+                    doc.addImage(item.img, "PNG", 30, 82, 155, 170);
+                    doc.addPage();
+                  } catch (error) {
+                    console.error("Error loading image: ", error);
+                  }
+                }
+              }
+            }
+          }
+        }
+      } catch (error) {
+        console.error("Error creating PDF: ", error);
+      }
+
+      if (doc.internal.getNumberOfPages() > 1) {
+        doc.deletePage(doc.internal.getNumberOfPages());
+      }
+
+      doc.save("exported.pdf");
+    }
+
+    function loadMyImage(src) {
+      return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.onload = () => {
+          const canvas = document.createElement("canvas");
+          canvas.width = img.width;
+          canvas.height = img.height;
+          const ctx = canvas.getContext("2d");
+          ctx.drawImage(img, 0, 0);
+          const dataURL = canvas.toDataURL("image/png");
+          resolve(dataURL);
+        };
+        img.onerror = () => reject(new Error(`Failed to load image at ${src}`));
+        img.src = src;
+      });
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const followImage = document.getElementById("followImage");
+
+      // 监听鼠标移动事件
+      document.addEventListener("mousemove", (event) => {
+        // 获取鼠标位置并加上滚动偏移量
+        const x = event.clientX + window.scrollX - followImage.offsetWidth / 2;
+        const y = event.clientY + window.scrollY - followImage.offsetHeight / 2;
+        followImage.style.transform = `translate(${x}px, ${y}px)`;
+      });
+    });
+
+    // 获取图片类型文件夹名称
+    function getImageTypeFolder(typeIndex) {
+      // 这里可以根据typeIndex映射到不同的文件夹名称
+      // 目前只有一种类型，即zm
+      switch (typeIndex) {
+        case 1:
+          return "zm"; // 假设typeIndex为1对应zm类型
+        case 2:
+          return "xiaoxie"; // 假设typeIndex为1对应zm类型
+        case 3:
+          return "shuzi"; // 假设typeIndex为1对应zm类型
+        case 4:
+          return "biaodian"; // 假设typeIndex为1对应zm类型
+        // 可以添加更多case来处理其他类型
+        default:
+          return "zm"; // 默认返回zm
+      }
+    }
+  </script>
+</html>
